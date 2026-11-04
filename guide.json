@@ -1,0 +1,111 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "moneyprinterturbo",
+    "nameCn": "MoneyPrinterTurbo",
+    "repoName": "moneyprinterturbo-deploy-guide",
+    "oneLiner": "给一个主题就自动写文案、找素材、配字幕并合成短视频",
+    "officialRepo": "https://github.com/harry0703/MoneyPrinterTurbo",
+    "officialDocs": "https://github.com/harry0703/MoneyPrinterTurbo#readme",
+    "stars": "138368",
+    "license": "MIT",
+    "highlights": [
+      "138368 stars，超高人气的短视频工具",
+      "主题直接出成片",
+      "自动字幕与背景音乐",
+      "WebUI + API 双入口",
+      "支持多种模型与 TTS",
+      "MIT 协议"
+    ],
+    "mcpSupport": "项目本身不带 MCP；本仓库的 MCP server 提供部署、配置项与常见故障说明。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-11-04",
+    "verification": [
+      [
+        "README 确认 compose 文件、8501 端口与配置文件复制步骤",
+        "已核对 2026-11-04"
+      ],
+      [
+        "确认 pip 安装包名为 mpt",
+        "已核对 2026-11-04"
+      ],
+      [
+        "未实测镜像拉取、配置填写与视频生成",
+        "说明 2026-11-04"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-11-04"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-11-04"
+      ]
+    ],
+    "deploy": {
+      "type": "docker",
+      "steps": [
+        "git clone https://github.com/harry0703/MoneyPrinterTurbo.git",
+        "cd MoneyPrinterTurbo",
+        "cp config.example.toml config.toml",
+        "docker compose -f docker-compose.release.yml up -d",
+        "docker ps"
+      ],
+      "stepsPs": [
+        "git clone https://github.com/harry0703/MoneyPrinterTurbo.git",
+        "Set-Location MoneyPrinterTurbo",
+        "Copy-Item config.example.toml config.toml",
+        "docker compose -f docker-compose.release.yml up -d",
+        "docker ps"
+      ],
+      "source": "https://github.com/harry0703/MoneyPrinterTurbo#docker-部署"
+    },
+    "pitfalls": [
+      "容器起来就退出：确认已复制 `config.toml`",
+      "页面打不开：确认 8501 端口未被占用",
+      "生成失败：检查模型 Key 与素材 Key",
+      "中文配音异常：换 TTS 供应商或检查语音参数",
+      "字幕错位：切换字幕模式或调整时长",
+      "磁盘爆满：定期清理 output 目录",
+      "Windows 启动慢：确认 WSL2 与 Docker Desktop 正常"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/moneyprinterturbo-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/moneyprinterturbo-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "MoneyPrinterTurbo",
+    "短视频 一键生成",
+    "AI 短视频 工具",
+    "主题 生成 视频",
+    "自动 字幕 配音",
+    "视频 批量 生成",
+    "docker 短视频",
+    "自媒体 视频 工具",
+    "moneyprinterturbo 教程",
+    "MoneyPrinterTurbo deploy guide"
+  ],
+  "topics": [
+    "short-video",
+    "ai-video",
+    "video-generation",
+    "streamlit",
+    "docker",
+    "moneyprinterturbo"
+  ]
+}
